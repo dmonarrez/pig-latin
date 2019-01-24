@@ -1,3 +1,4 @@
+
 var vowels = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'];
 
 function beginVowel(word) {
@@ -6,8 +7,11 @@ function beginVowel(word) {
 
 function beginCons(word) {
   for(var i = 0; i < word.length;) {
+    if((word[i] === 'u' || word[i] === 'U') && (word[i - 1] === 'q' || word[i - 1] === 'Q')) {
+      i++;
+    }
     if(!vowels.includes(word[i])) {
-      i++
+      i++;
     } else {
       let cons = word.slice(0, i);
       let sliceWord = word.slice(i, word.length);
